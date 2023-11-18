@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}Page Title{% endblock %}
+{% block extra_css %}{% load static %}<link rel="stylesheet" href="{% static 'css/home_sec.css' %}">
+{% endblock %}
 
 {% block content %}
-    <h1>Welcome to my website!</h1>
-    <p>This is the content of the child template.</p>
+    <div class="section" id="home_sec">
+        <button id="get_started" >
+            <a href="{% url 'dash_view'%}">Get Started </a>
+        </button>
+    </div>
+    
 {% endblock %}
