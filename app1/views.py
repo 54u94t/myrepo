@@ -20,7 +20,9 @@ def home_view(request):
     return render(request, 'home.html')
 
 def store_view(request):
-    return render(request, 'store.html')
+    items = Product.objects.all()
+    context = {'items': items}
+    return render(request, 'store.html', context)
 def about_view(request):
     return render(request, 'about.html')
 
@@ -86,11 +88,11 @@ def dash_view(request):
 
 def add_product(request):
     if request.method == 'POST':
-        form = ProductForm(request.POST)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             # You can add a success message or redirect to another page
-            return redirect('dash_view')
+            return redirect('store_view')
     else:
         form = ProductForm()
 

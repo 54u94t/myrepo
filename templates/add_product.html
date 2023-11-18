@@ -11,7 +11,7 @@
     <p>Add a product to inventory</p>
     <br>
     <hr>
-    <form method="post" action="{% url 'add_product' %}">
+    <form method="post" action="{% url 'add_product' %}" enctype="multipart/form-data">
         {% csrf_token %}
         <h2>Add a new product</h2>
         
@@ -27,6 +27,10 @@
         <label for="{{ form.quantity.id_for_label }}">Quantity:</label>
         {{ form.quantity }}
         
+        <label for="{{ form.image.id_for_label }}">Image:</label>
+        {{ form.image }}
+        
         <button type="submit">Add Product</button>
     </form>
+    
 {% endblock %}

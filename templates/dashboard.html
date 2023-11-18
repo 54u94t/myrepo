@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load custom_filters %}
 {% block extra_css %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
@@ -30,7 +30,6 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Quantity</th>
-             
             </tr>
         </thead>
         <tbody>
@@ -38,11 +37,18 @@
                 <tr>
                     <td>{{ item.name }}</td>
                     <td>{{ item.description }}</td>
-                    <td>${{ item.price }}</td>
+                    <td>NRs.{{ item.price }}</td>
                     <td>{{ item.quantity }}</td>
-                 
                 </tr>
             {% endfor %}
+            <tr>
+                <td></td> <!-- Empty cell for the name -->
+                <td><strong>TOTAL</strong></td> <!-- "TOTAL" below the description column -->
+                <td><strong>
+                    NRs.{{ prod|total_price }}
+                </strong></td> <!-- Total price of all products -->
+                <td></td> <!-- Empty cell for the quantity -->
+            </tr>
         </tbody>
     </table>
 
@@ -65,7 +71,7 @@
                     <th>Description</th>
                     <th>Amount</th>
                     <th>Category</th>
-                    <th>Date</th> <!-- Add the Date column -->
+                    <th>Date</th> <!-- Added Date column -->
                     <!-- Add more columns as needed -->
                 </tr>
             </thead>
@@ -73,14 +79,24 @@
                 {% for expense in expenses_table %}
                     <tr>
                         <td>{{ expense.description }}</td>
-                        <td>{{ expense.amount }}</td>
+                        <td>NRs.{{ expense.amount }}</td>
                         <td>{{ expense.get_category_display }}</td>
                         <td>{{ expense.date }}</td> <!-- Display the date -->
                         <!-- Add more columns as needed -->
                     </tr>
                 {% endfor %}
+                <tr>
+                    <td><strong>TOTAL</strong></td> <!-- Empty cell for the description -->
+                    <td><strong>
+                        NRs.{{ expenses_table|total_expense }}
+                    </strong></td> <!-- "TOTAL" below the amount column -->
+                    <td></td> <!-- Empty cell for the category -->
+                    <td></td> <!-- Total amount of all expenses -->
+                    <!-- Add more empty cells or adjust as needed -->
+                </tr>
             </tbody>
         </table>
+        
         
     </div>
 {% endblock %}

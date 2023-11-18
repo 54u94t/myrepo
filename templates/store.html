@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
 
-{% block title %}Page Title{% endblock %}
+{% block extra_css %}{% load static %}<link rel="stylesheet" href="{% static 'css/movie_album.css' %}">{% endblock %}
 
 {% block content %}
     <h1>Welcome to my Store!</h1>
-    <p>This is the content of the child template.</p>
+    
+    <div class="movie-album">
+        {% for product in items %}
+            <div class="movie-card">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <p>Price: ${{ product.price }}</p>
+                <!-- Add more details as needed -->
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

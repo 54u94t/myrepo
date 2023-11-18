@@ -4,7 +4,12 @@ from .models import Product, Expense
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'description', 'price', 'quantity']
+        fields = ['name', 'description', 'price', 'quantity', 'image']
+
+    # Optional: Add widgets or customize form appearance if needed
+    widgets = {
+        'description': forms.Textarea(attrs={'rows': 4}),
+    }
 
 class ExpenseForm(forms.ModelForm):
     class Meta:
