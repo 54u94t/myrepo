@@ -11,43 +11,44 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header class="header">
             <div class="navbar">
                 <div class="logo"></div>
                 <nav>
                     <ul>
                         <li><a href="{% url 'dash_view' %}">Dashboard</a></li>
-                        <li><a href="#">Store</a></li>
-                        <li><a href="#">Profile</a></li>
+                        <li><a href="{% url 'store_view' %}">Store</a></li>
+                        <li><a href="#">Profile (Unavailable)</a></li>
                         <li>
                             <a href="#">Products</a>
                             <ul class="sub-menu">
-                                <li><a href="{% url 'add_product' %}">Grow Galore</a></li>
-                                <li><a href="#">Pawned Items</a></li>
-                                <li><a href="#">Sold Items</a></li>
-                                <li><a href="#">Manage Items</a>
+                                <li><a href="{% url 'add_product' %}">New Items</a></li>
+                                <li><a href="{% url 'add_expense' %}">Save Up</a></li>
+                                <li><a href="#">Sold Items(Unavailable)</a></li>
+                                <li><a href="#">Manage Items(Unavailable)</a>
                                     <ul class="sub-menu1">
-                                        <li><a href="#">submenu item 1</a></li>
-                                        <li><a href="#">submenu item</a></li>
-                                        <li><a href="#">submenu item</a></li>
-                                        <li><a href="#">submenu item</a></li>
+                                        <li><a href="#">(Unavailable)</a></li>
+                                        <li><a href="#">(Unavailable)</a></li>
+                                        <li><a href="#">(Unavailable)</a></li>
+                                        <li><a href="#">(Unavailable)</a></li>
                                     </ul>
                                 </li>
-                                
                             </ul>
                         </li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="{% url 'about_view' %}">About</a></li>
                     </ul>
                 </nav>
             </div>
+        </header>
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
         </div>
-<div class="content">
-    {% block content %}
-    {% endblock %}
-</div>
-        <div class="footer">
-            <p>&copy; 2023 Your Website. All rights reserved.</p>
-        </div>
+
+        <footer class="footer">
+            <p>&copy; 2023 Home Apps. All rights reserved.</p>
+        </footer>
     </div>
     <!-- Add any additional scripts here -->
     <script>

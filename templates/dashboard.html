@@ -1,27 +1,86 @@
 {% extends 'base.html' %}
 
-    {% block extra_css %}
+{% block extra_css %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
     <link rel="stylesheet" href="{% static 'css/section.css' %}">
-    {% endblock %}
-
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <style>
+        /* Additional CSS styling for the 'section' class */
+        .section {
+            display: block;
+            margin-bottom: 20px; /* Optional: Add margin for better separation */
+        }
+    </style>
+{% endblock %}
 
 {% block content %}
-    <h1>DashBoard</h1>
-    <p>Welcome, Lord!</p>
- 
-   
-        {% for item in prod %}
-        <div class="section">
-            <div class="section-item">
-                <h2>{{ item.name }}</h2>
-                <p>{{ item.description }}</p>
-                <p>In Stock: {{ item.quantity }}</p>
-            </div>
-           
-        </div>
-        {% endfor %}
-    
-   
+    <h1>Products in Stock</h1>
+    <p>This shows what we can sell.</p>
+
+    <!-- Bar Chart Section -->
+    <div class="section">
+        <img src="{{ chart_image_path_bar }}" alt="Bar Chart">
+    </div>
+
+    <table class="tablestyle">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in prod %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>${{ item.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                 
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+
+    <h1>Check Your Expenses</h1>
+    <p>This shows what tore a hole in your pocket.</p>
+
+    <!-- Pie Chart Section -->
+    <div class="section">
+        <img src="{{ chart_image_path_pie }}" alt="Pie Chart">
+    </div>
+
+    <!-- Expense Table Section -->
+    <div class="section">
+        <h1>Expense Table</h1>
+        <table class="tablestyle">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Date</th> <!-- Add the Date column -->
+                    <!-- Add more columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in expenses_table %}
+                    <tr>
+                        <td>{{ expense.description }}</td>
+                        <td>{{ expense.amount }}</td>
+                        <td>{{ expense.get_category_display }}</td>
+                        <td>{{ expense.date }}</td> <!-- Display the date -->
+                        <!-- Add more columns as needed -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
 {% endblock %}

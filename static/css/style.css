@@ -13,18 +13,18 @@ body {
 
 /* Container styles */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
- 
+    width: 100%; /* Set width to 100% for responsiveness */
+    margin: 0; /* Remove margin to ensure full width */
 }
-.content{
-    display:flex;
-    flex-direction:column;
+
+.content {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
-
 }
+
 /* Header styles */
 .header {
     background-color: #333;
@@ -40,9 +40,11 @@ body {
 }
 
 .logo {
-    width: 50px;
-    height: 50px;
-    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    background-image: url('/static/images/logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Navigation styles */
