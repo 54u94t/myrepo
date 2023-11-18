@@ -1,0 +1,16 @@
+.section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* Set your desired background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    border-radius: 10px; /* Add rounded corners */
+}
+
+/* Add additional styles as needed */
+
+/* Style for items in the section */
+.section-item {
+    margin-bottom: 10px;
+    /* Add more styles as needed */
+}

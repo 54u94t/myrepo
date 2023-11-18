@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}
+
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="navbar">
+                <div class="logo"></div>
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'dash_view' %}">Dashboard</a></li>
+                        <li><a href="#">Store</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li>
+                            <a href="#">Products</a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'add_product' %}">Grow Galore</a></li>
+                                <li><a href="#">Pawned Items</a></li>
+                                <li><a href="#">Sold Items</a></li>
+                                <li><a href="#">Manage Items</a>
+                                    <ul class="sub-menu1">
+                                        <li><a href="#">submenu item 1</a></li>
+                                        <li><a href="#">submenu item</a></li>
+                                        <li><a href="#">submenu item</a></li>
+                                        <li><a href="#">submenu item</a></li>
+                                    </ul>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+        <div class="footer">
+            <p>&copy; 2023 Your Website. All rights reserved.</p>
+        </div>
+    </div>
+    <!-- Add any additional scripts here -->
+    <script>
+        // Your JavaScript code here
+    </script>
+</body>
+</html>

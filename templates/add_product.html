@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+    {% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    {% endblock %}
+
+
+{% block content %}
+    <h1>DashBoard</h1>
+    <p>Welcome, Lord!</p>
+    <br>
+    <hr>
+    <form method="post" action="{% url 'add_product' %}">
+        {% csrf_token %}
+        <h2>Add a new product</h2>
+        
+        <label for="{{ form.name.id_for_label }}">Product Name:</label>
+        {{ form.name }}
+        
+        <label for="{{ form.description.id_for_label }}">Description:</label>
+        {{ form.description }}
+        
+        <label for="{{ form.price.id_for_label }}">Price:</label>
+        {{ form.price }}
+        
+        <label for="{{ form.quantity.id_for_label }}">Quantity:</label>
+        {{ form.quantity }}
+        
+        <button type="submit">Add Product</button>
+    </form>
+{% endblock %}
