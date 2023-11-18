@@ -1,0 +1,170 @@
+/* Reset some default styles and set box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles for the body */
+body {
+    font-family: 'Arial', sans-serif;
+    padding-bottom: 60px; /* Add padding to the bottom of the body */
+}
+
+/* Container styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+ 
+}
+.content{
+    display:flex;
+    flex-direction:column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+/* Header styles */
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+li {
+    margin-right: 20px;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Sub-menu styles */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+    display: inline-block;
+}
+
+nav a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    border-top: 2px solid #fff;
+}
+
+nav ul li:hover > ul {
+    display: flex;
+    flex-direction: column;
+}
+
+nav ul ul li {
+    width: 200px; /* Adjust the width as needed */
+}
+
+nav ul ul ul {
+    left: 100%;
+    top: 0;
+}
+
+/* Optional: Style for sub-menu items */
+nav ul ul li a {
+    padding: 10px;
+}
+
+/* Style for top-level items */
+nav > ul > li {
+    background-color: #555;
+}
+
+/* Style for top-level links */
+nav > ul > li > a {
+    border-bottom: 2px solid #fff;
+}
+
+/* Style for sub-menu links */
+nav ul ul li > a {
+    border-bottom: 1px solid #fff;
+}
+
+/* Content styles */
+.content {
+    padding: 20px;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    z-index: 999; /* Ensure the footer appears on top of other elements */
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    ul {
+        margin-top: 10px;
+    }
+
+    li {
+        margin-right: 0;
+        margin-bottom: 10px;
+        position: static;
+    }
+
+    .sub-menu,
+    .sub-menu1 {
+        position: static;
+        display: none;
+    }
+}
