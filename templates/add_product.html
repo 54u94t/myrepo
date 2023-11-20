@@ -17,7 +17,12 @@
         
         <label for="{{ form.name.id_for_label }}">Product Name:</label>
         {{ form.name }}
-        
+         <!-- Add the category dropdown -->
+    <label for="{{ form.category.id_for_label }}">Category:</label>
+    {{ form.category }}
+    <label for="{{ form.status.id_for_label }}">Status:</label>
+{{ form.status }}
+
         <label for="{{ form.description.id_for_label }}">Description:</label>
         {{ form.description }}
         
@@ -30,7 +35,10 @@
         <label for="{{ form.image.id_for_label }}">Image:</label>
         {{ form.image }}
         
+        
         <button type="submit">Add Product</button>
+        {{ form.errors }}
+
     </form>
     
 {% endblock %}

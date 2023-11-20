@@ -15,13 +15,52 @@
 {% endblock %}
 
 {% block content %}
+<h1>Check Your Expenses</h1>
+<p>This shows what tore a hole in your pocket.</p>
+<!-- Expense Table Section -->
+<div class="section">
+      <h1>Expense Table</h1>
+    <table class="tablestyle">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Date</th> <!-- Added Date column -->
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses_table %}
+                <tr>
+                    <td>{{ expense.description }}</td>
+                    <td>NRs.{{ expense.amount }}</td>
+                    <td>{{ expense.get_category_display }}</td>
+                    <td>{{ expense.date }}</td> <!-- Display the date -->
+                    <!-- Add more columns as needed -->
+                </tr>
+            {% endfor %}
+            <tr>
+                <td><strong>TOTAL</strong></td> <!-- Empty cell for the description -->
+                <td><strong>
+                    NRs.{{ expenses_table|total_expense }}
+                </strong></td> <!-- "TOTAL" below the amount column -->
+                <td></td> <!-- Empty cell for the category -->
+                <td></td> <!-- Total amount of all expenses -->
+                <!-- Add more empty cells or adjust as needed -->
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <hr>
+    <img src="{{ chart_image_path_pie }}" alt="Pie Chart">
+
+    
+</div>
     <h1>Products in Stock</h1>
     <p>This shows what we can sell.</p>
 
-    <!-- Bar Chart Section -->
-    <div class="section">
-        <img src="{{ chart_image_path_bar }}" alt="Bar Chart">
-    </div>
+  
 
     <table class="tablestyle">
         <thead>
@@ -53,50 +92,10 @@
     </table>
 
     <br>
+<hr>
+<img src="{{ chart_image_path_bar }}" alt="Bar Chart">
+   
+    
 
-    <h1>Check Your Expenses</h1>
-    <p>This shows what tore a hole in your pocket.</p>
-
-    <!-- Pie Chart Section -->
-    <div class="section">
-        <img src="{{ chart_image_path_pie }}" alt="Pie Chart">
-    </div>
-
-    <!-- Expense Table Section -->
-    <div class="section">
-        <h1>Expense Table</h1>
-        <table class="tablestyle">
-            <thead>
-                <tr>
-                    <th>Description</th>
-                    <th>Amount</th>
-                    <th>Category</th>
-                    <th>Date</th> <!-- Added Date column -->
-                    <!-- Add more columns as needed -->
-                </tr>
-            </thead>
-            <tbody>
-                {% for expense in expenses_table %}
-                    <tr>
-                        <td>{{ expense.description }}</td>
-                        <td>NRs.{{ expense.amount }}</td>
-                        <td>{{ expense.get_category_display }}</td>
-                        <td>{{ expense.date }}</td> <!-- Display the date -->
-                        <!-- Add more columns as needed -->
-                    </tr>
-                {% endfor %}
-                <tr>
-                    <td><strong>TOTAL</strong></td> <!-- Empty cell for the description -->
-                    <td><strong>
-                        NRs.{{ expenses_table|total_expense }}
-                    </strong></td> <!-- "TOTAL" below the amount column -->
-                    <td></td> <!-- Empty cell for the category -->
-                    <td></td> <!-- Total amount of all expenses -->
-                    <!-- Add more empty cells or adjust as needed -->
-                </tr>
-            </tbody>
-        </table>
-        
-        
-    </div>
+    
 {% endblock %}

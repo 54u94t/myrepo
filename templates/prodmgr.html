@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}{% load static %}<link rel="stylesheet" href="{% static 'css/prod_mgr_btn.css' %}">
+<link rel="stylesheet" href="{% static 'css/section.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section" id="home_sec">
+    <table>
+        <thead>
+            <tr>
+                <th>Products</th>
+                <th>Images</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>
+                        <button>
+                            <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+                        </button>
+                    </td>
+                    <td>
+                        <img src="{{ product.image.url }}" alt="{{ product.name }} Image" width="100" height="100">
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

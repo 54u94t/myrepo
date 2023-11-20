@@ -11,9 +11,21 @@ class Product(models.Model):
     image = models.ImageField(upload_to=product_image_filename, default='default_product_image.png')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    
+    # Add a new field for product category with a one-off default value
+    category = models.CharField(max_length=50, default='uncategorized')
+    
+    status_choices = [
+        ('acquired', 'Acquired'),
+        ('classified', 'Classified'),
+        ('on sale', 'On Sale'),
+        ('sold', 'Sold'),
+    ]
+    status = models.CharField(max_length=20, choices=status_choices, default='acquired')
 
     def __str__(self):
         return self.name
+
     
 class Expense(models.Model):
     category_choices = [
@@ -38,3 +50,5 @@ class Expense(models.Model):
 
     class Meta:
         ordering = ['-date']
+    
+

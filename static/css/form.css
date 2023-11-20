@@ -1,4 +1,4 @@
-
+/* Add this CSS to your existing stylesheet */
 
 form {
     background-color: #fff;
@@ -7,6 +7,7 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 100%;
+    margin: 0 auto; /* Center the form horizontally */
 }
 
 h2 {
@@ -20,7 +21,8 @@ label {
     color: #555;
 }
 
-input, textarea {
+/* Apply styles to input and select */
+input, select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -30,6 +32,16 @@ input, textarea {
     font-size: 16px;
 }
 
+/* Style for the dropdown */
+select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    padding-right: 30px; /* Add space for the dropdown arrow */
+    background: url('path/to/your-arrow-image.png') no-repeat right center; /* Replace with your arrow image path */
+}
+
+/* Style for the button */
 button {
     background-color: #4caf50;
     color: #fff;

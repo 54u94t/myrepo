@@ -2,9 +2,9 @@
     background-image: url('/static/images/section_back.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center 10%; /* Adjust the vertical position */
+    background-position: center 40%; /* Adjust the vertical position */
     width: 100%;
-    min-height: 42em;
+    min-height: 25em;
     display:flex;
     justify-content: center;
     align-items: flex-start;
@@ -24,7 +24,7 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 150px;
 }
 
 #get_started::after {

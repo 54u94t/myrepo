@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}{% load static %}
+<link rel="stylesheet" href="{% static 'css/prod_mgr_btn.css' %}">
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+{% endblock %}
+{% block content %}
+<div class="section" id="home_sec">
+    <h1>{{ product.name }}</h1>
+    <p>Status: {{ product.status }}</p>
+
+    <button>
+        <a href="{% url 'update_status' product.id 'acquired' %}">Set Acquired</a>
+    </button>
+    <button>
+        <a href="{% url 'update_status' product.id 'classified' %}">Set Classified</a>
+    </button>
+    <button>
+        <a href="{% url 'update_status' product.id 'on_sale' %}">Set On Sale</a>
+    </button>
+    <button>
+        <a href="{% url 'update_status' product.id 'sold' %}">Set Sold</a>
+    </button>
+</div>
+
+    
+{% endblock %}

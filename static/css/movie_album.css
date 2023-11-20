@@ -1,19 +1,16 @@
-/* Add this to your CSS file or style tag in your HTML */
-
-.movie-album {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.movie-album{
+    display:flex;
+    flex-direction: row;
 }
-
 .movie-card {
+    position: relative; /* Ensure relative positioning for absolute positioning of overlay */
     width: 200px;
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     padding: 10px;
     border-radius: 10px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .movie-card:hover {
@@ -26,14 +23,33 @@
     border-radius: 8px 8px 0 0;
 }
 
-.movie-card h2 {
-    font-size: 1.2rem;
-    margin: 10px 0;
+/* Overlay for sold-out items */
+.movie-card:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/images/no.jpg') center center no-repeat; /* Replace 'path/to/not-available-image.png' with the actual path to your image */
+    background-size: contain; /* Adjust the size as needed */
+    border-radius: 8px 8px 0 0;
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Allow interaction with the underlying content */
+    
 }
 
-.movie-card p {
-    font-size: 0.9rem;
-    margin: 5px 0;
+.movie-card.sold-out:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/images/no.png') center center no-repeat;
+    background-size: contain;
+    border-radius: 8px 8px 0 0;
+    opacity: 0.3; /* Set the opacity to 30% */
+    pointer-events: none;
+    z-index: 999; /* Ensure a high z-index */
 }
-
-/* Add more styles as needed */

@@ -4,16 +4,29 @@
 
 {% block content %}
     <h1>Welcome to my Store!</h1>
+    {% with valid_statuses='sold classified acquired' %}
+<div class="movie-album">
+    {% for product in items %}
+        <div class="movie-card {% if product.status in valid_statuses %}sold-out{% endif %}">
+            <a href="{% url 'product_detail' product.id %}">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            </a>
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <p>Price: Nrs.{{ product.price }}</p>
+            <!-- Add more details as needed -->
+
+            <!-- Debug information -->
+            <p>Status: {{ product.status }}</p>
+
+            <!-- Overlay for sold, classified, or acquired items -->
+            {% if product.status in valid_statuses %}
+                <div class="overlay" style="background-image: url('/static/images/no.png');"></div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+{% endwith %}
+
     
-    <div class="movie-album">
-        {% for product in items %}
-            <div class="movie-card">
-                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                <h2>{{ product.name }}</h2>
-                <p>{{ product.description }}</p>
-                <p>Price: ${{ product.price }}</p>
-                <!-- Add more details as needed -->
-            </div>
-        {% endfor %}
-    </div>
 {% endblock %}

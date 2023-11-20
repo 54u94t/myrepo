@@ -18,22 +18,23 @@
                     <ul>
                         <li><a href="{% url 'home_view' %}">Home</a></li>
                         <li><a href="{% url 'dash_view' %}">Dashboard</a></li>
-                        <li><a href="{% url 'store_view' %}">Store</a></li>
-                        <li><a href="#">Profile (Unavailable)</a></li>
+                        <li><a href="{% url 'store_view' %}">Store(Admin)</a></li>
+                        {% comment %} <li><a href="#">Profile (Unavailable)</a></li> {% endcomment %}
+                        <li>
+                            <a href="#">Expenses</a>
+                            <ul class="sub-menu">
+                                <li><a href="{% url 'add_expense' %}">Add Expense Items</a></li>
+                               
+                                
+                            </ul>
+                        </li>
                         <li>
                             <a href="#">Products</a>
                             <ul class="sub-menu">
+                                <li><a href="{% url 'manage_prod_view' %}">Manage Items</a>
                                 <li><a href="{% url 'add_product' %}">New Items</a></li>
-                                <li><a href="{% url 'add_expense' %}">Save Up</a></li>
-                                <li><a href="#">Sold Items(Unavailable)</a></li>
-                                <li><a href="#">Manage Items(Unavailable)</a>
-                                    <ul class="sub-menu1">
-                                        <li><a href="#">(Unavailable)</a></li>
-                                        <li><a href="#">(Unavailable)</a></li>
-                                        <li><a href="#">(Unavailable)</a></li>
-                                        <li><a href="#">(Unavailable)</a></li>
-                                    </ul>
-                                </li>
+                                
+                                
                             </ul>
                         </li>
                         <li><a href="{% url 'about_view' %}">About</a></li>
